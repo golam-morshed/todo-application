@@ -1,27 +1,34 @@
-import { ADDED, DELETED, STATUS_TOGGLED, COLOR_CHANGED, COMPLETE_ALL, CLEAR_ALL } from "./actionType";
+import { LOADED, ADDED, DELETED, STATUS_TOGGLED, COLOR_CHANGED, COMPLETE_ALL, CLEAR_ALL } from "./actionType";
 
-export const addNewTodo = (todo) => {
+export const todoLoaded = (todos) => {
+    return {
+        type: LOADED,
+        payload: todos
+    }
+}
+
+export const addedNewTodo = (todo) => {
     return {
         type: ADDED,
         payload: todo
     }
 }
 
-export const deleteTodo = (todoId) => {
+export const deletedTodo = (todoId) => {
     return {
         type: DELETED,
         payload: todoId
     }
 }
 
-export const toggleStatus = (todoId) => {
+export const toggledStatus = (todoId) => {
     return {
         type: STATUS_TOGGLED,
         payload: todoId
     }
 }
 
-export const changeColor = (todoId, color) => {
+export const changedColor = (todoId, color) => {
     return {
         type: COLOR_CHANGED,
         payload: {
@@ -31,13 +38,13 @@ export const changeColor = (todoId, color) => {
     }
 }
 
-export const completeAll = () => {
+export const completedAll = () => {
     return {
         type: COMPLETE_ALL
     }
 }
 
-export const clearAll = () => {
+export const clearedAll = () => {
     return {
         type: CLEAR_ALL
     }

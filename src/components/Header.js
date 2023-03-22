@@ -3,7 +3,9 @@ import noteImage from "../assets/images/notes.png";
 import plusImage from "../assets/images/plus.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addNewTodo, completeAll, clearAll } from "../redux/todos/action";
+import addNewTodo from '../thunk/addNewTodo';
+import completeAll from "../thunk/completeAll";
+import clearAll from "../thunk/clearAll";
 
 export default function Header() {
     const dispatch = useDispatch();
@@ -15,7 +17,6 @@ export default function Header() {
     const addTodo = (e) => {
         e.preventDefault();
         if (todoText !== "") {
-            console.log(todoText);
             dispatch(addNewTodo(todoText));
             setTodoText("");
         }
